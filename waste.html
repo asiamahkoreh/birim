@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Birim Waste Management – Adenta, Accra</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green: #1D9E75;
+      --green-light: #E1F5EE;
+      --green-mid: #9FE1CB;
+      --green-dark: #085041;
+      --text: #2C2C2A;
+      --muted: #5F5E5A;
+      --border: rgba(0, 0, 0, 0.1);
+      --bg-soft: #f9fdf7;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text);
+      background: #fff;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    a { text-decoration: none; }
+
+    /* ── NAV ── */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      border-bottom: 0.5px solid var(--border);
+      position: sticky;
+      top: 0;
+      background: #fff;
+      z-index: 100;
+    }
+
+    .logo {
+      font-family: 'Fraunces', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--green-dark);
+      letter-spacing: -0.02em;
+    }
+
+    .logo span { color: var(--green); }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--green); }
+
+    .cta-btn {
+      background: var(--green);
+      color: #fff;
+      padding: 0.5rem 1.2rem;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+
+    .cta-btn:hover { background: var(--green-dark); }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+      background: linear-gradient(180deg, var(--bg-soft) 0%, #fff 100%);
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--green-light);
+      color: var(--green-dark);
+      font-size: 12px;
+      font-weight: 500;
+      padding: 0.3rem 0.9rem;
+      border-radius: 20px;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.02em;
+    }
+
+    .hero h1 {
+      font-family: 'Fraunces', serif;
+      font-size: 3rem;
+      font-weight: 600;
+      line-height: 1.15;
+      color: var(--green-dark);
+      max-width: 600px;
+      margin: 0 auto 1rem;
+      letter-spacing: -0.03em;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--green);
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 480px;
+      margin: 0 auto 2rem;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--green);
+      color: #fff;
+      padding: 0.75rem 1.8rem;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 15px;
+      transition: background 0.2s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover { background: var(--green-dark); }
+
+    .btn-outline {
+      border: 1.5px solid var(--green);
+      color: var(--green);
+      padding: 0.75rem 1.8rem;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 15px;
+      transition: all 0.2s;
+      display: inline-block;
+    }
+
+    .btn-outline:hover { background: var(--green-light); }
+
+    /* ── DIVIDER ── */
+    .divider {
+      height: 0.5px;
+      background: var(--border);
+      margin: 0 2rem;
+    }
+
+    /* ── SECTIONS ── */
+    .section {
+      padding: 3.5rem 2rem;
+    }
+
+    .section-label {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--green);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+
+    .section h2 {
+      font-family: 'Fraunces', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--green-dark);
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+
+    .section p.lead {
+      color: var(--muted);
+      max-width: 520px;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    /* ── HOW IT WORKS ── */
+    .how-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .how-card {
+      background: var(--bg-soft);
+      border: 0.5px solid var(--green-mid);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+
+    .step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background: var(--green);
+      color: #fff;
+      border-radius: 50%;
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    .how-card h3 {
+      font-size: 15px;
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+      color: var(--green-dark);
+    }
+
+    .how-card p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── PRICING ── */
+    .pricing-section {
+      background: var(--bg-soft);
+      border-radius: 16px;
+      padding: 2.5rem;
+      margin: 0 2rem 3rem;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .price-card {
+      background: #fff;
+      border: 0.5px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+
+    .price-card.featured {
+      border: 2px solid var(--green);
+    }
+
+    .price-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .price-tag {
+      font-family: 'Fraunces', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--green-dark);
+      margin: 0.5rem 0;
+    }
+
+    .price-tag span {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--muted);
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .popular-badge {
+      background: var(--green-light);
+      color: var(--green-dark);
+      font-size: 11px;
+      font-weight: 500;
+      padding: 3px 10px;
+      border-radius: 20px;
+      display: inline-block;
+      margin-bottom: 0.75rem;
+    }
+
+    .price-features {
+      list-style: none;
+      margin: 1rem 0 1.25rem;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .price-features li {
+      padding: 0.3rem 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .price-features li::before {
+      content: "✓";
+      color: var(--green);
+      font-weight: 600;
+    }
+
+    /* ── WHY US ── */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .why-card {
+      padding: 1.25rem;
+      border: 0.5px solid var(--border);
+      border-radius: 10px;
+    }
+
+    .why-icon {
+      font-size: 24px;
+      margin-bottom: 0.75rem;
+    }
+
+    .why-card h3 {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--green-dark);
+      margin-bottom: 0.3rem;
+    }
+
+    .why-card p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials {
+      background: var(--bg-soft);
+      padding: 3rem 2rem;
+    }
+
+    .t-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .t-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 1.5rem;
+      border: 0.5px solid var(--border);
+    }
+
+    .t-card p {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.6;
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+
+    .t-author {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--green-dark);
+    }
+
+    .t-loc {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* ── SIGNUP ── */
+    .signup-section {
+      background: var(--green-dark);
+      color: #fff;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .signup-section h2 {
+      font-family: 'Fraunces', serif;
+      font-size: 2.2rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+
+    .signup-section p {
+      color: rgba(255, 255, 255, 0.75);
+      max-width: 440px;
+      margin: 0 auto 2rem;
+      line-height: 1.7;
+    }
+
+    .signup-form {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      max-width: 500px;
+      margin: 0 auto 1rem;
+    }
+
+    .signup-form input {
+      flex: 1;
+      min-width: 200px;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      border: none;
+      font-size: 14px;
+      font-family: 'DM Sans', sans-serif;
+      outline: none;
+      color: var(--text);
+    }
+
+    .signup-form input:focus {
+      outline: 2px solid var(--green-mid);
+    }
+
+    .signup-form button {
+      background: var(--green);
+      color: #fff;
+      padding: 0.75rem 1.8rem;
+      border-radius: 8px;
+      border: none;
+      font-weight: 500;
+      font-size: 15px;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      white-space: nowrap;
+      transition: opacity 0.2s;
+    }
+
+    .signup-form button:hover { opacity: 0.88; }
+
+    .momo-note {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.5);
+      margin-top: 1rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      border-top: 0.5px solid var(--border);
+    }
+
+    .footer-logo {
+      font-family: 'Fraunces', serif;
+      font-weight: 600;
+      color: var(--green-dark);
+      font-size: 1rem;
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 0.3rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 13px;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--green); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      nav { padding: 1rem; }
+      .nav-links { display: none; }
+      .hero { padding: 3rem 1.25rem 2.5rem; }
+      .hero h1 { font-size: 2.2rem; }
+      .section { padding: 2.5rem 1.25rem; }
+      .pricing-section { margin: 0 1rem 2rem; padding: 1.5rem; }
+      .divider { margin: 0 1rem; }
+      .testimonials { padding: 2.5rem 1.25rem; }
+      .signup-section { padding: 3rem 1.25rem; }
+      footer { flex-direction: column; align-items: flex-start; padding: 1.5rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="logo">Birim <span>Waste</span> Management</div>
+    <ul class="nav-links">
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#signup">Contact</a></li>
+      <li><a href="tel:0240299171">024 029 9171</a></li>
+    </ul>
+    <a href="#signup" class="cta-btn">Subscribe now</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-badge">Serving Adenta, Accra</div>
+    <h1>Clean streets.<br><em>Reliable collection.</em><br>Every week.</h1>
+    <p>Birim Waste Management provides scheduled, dependable waste pickup for homes and businesses in Adenta. Subscribe once, pay via MoMo, and we handle the rest.</p>
+    <div class="hero-actions">
+      <a href="#signup" class="btn-primary">Subscribe from GHS 40/month</a>
+      <a href="#how" class="btn-outline">How it works</a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- HOW IT WORKS -->
+  <section class="section" id="how">
+    <div class="section-label">Simple process</div>
+    <h2>Up and running in 3 steps</h2>
+    <p class="lead">No contracts. No hassle. Just pay monthly via Mobile Money and we'll be at your gate on schedule.</p>
+    <div class="how-grid">
+      <div class="how-card">
+        <div class="step-num">1</div>
+        <h3>Sign up online</h3>
+        <p>Fill in your address and select a plan. Takes less than 2 minutes.</p>
+      </div>
+      <div class="how-card">
+        <div class="step-num">2</div>
+        <h3>Pay via MoMo</h3>
+        <p>Send your first month's payment to our MoMo number. You're confirmed instantly.</p>
+      </div>
+      <div class="how-card">
+        <div class="step-num">3</div>
+        <h3>We collect weekly</h3>
+        <p>Our team arrives on your scheduled day, every week. No chasing, no reminders.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PRICING -->
+  <div class="pricing-section" id="pricing">
+    <div class="section-label">Pricing</div>
+    <h2>Simple, honest pricing</h2>
+    <p style="color: var(--muted); margin-bottom: 0.5rem;">Pay monthly via MTN MoMo or Vodafone Cash. Cancel anytime.</p>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-label">Residential</div>
+        <div class="price-tag">GHS 40 <span>/ month</span></div>
+        <ul class="price-features">
+          <li>Weekly collection</li>
+          <li>Up to 4 bags per visit</li>
+          <li>MoMo payment</li>
+          <li>WhatsApp support</li>
+        </ul>
+        <a href="#signup" class="btn-primary" style="display: block; text-align: center; font-size: 14px; padding: 0.6rem 1rem;">Get started</a>
+      </div>
+      <div class="price-card featured">
+        <div class="popular-badge">Most popular</div>
+        <div class="price-label">Family / Large home</div>
+        <div class="price-tag">GHS 70 <span>/ month</span></div>
+        <ul class="price-features">
+          <li>Twice-weekly collection</li>
+          <li>Unlimited bags</li>
+          <li>MoMo payment</li>
+          <li>Priority WhatsApp support</li>
+        </ul>
+        <a href="#signup" class="btn-primary" style="display: block; text-align: center; font-size: 14px; padding: 0.6rem 1rem;">Get started</a>
+      </div>
+      <div class="price-card">
+        <div class="price-label">Business / Commercial</div>
+        <div class="price-tag">GHS 150 <span>/ month</span></div>
+        <ul class="price-features">
+          <li>3x per week collection</li>
+          <li>Large-volume bins</li>
+          <li>Invoice &amp; receipt</li>
+          <li>Dedicated contact</li>
+        </ul>
+        <a href="#signup" class="btn-primary" style="display: block; text-align: center; font-size: 14px; padding: 0.6rem 1rem;">Get started</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHY US -->
+  <section class="section">
+    <div class="section-label">Why Birim</div>
+    <h2>Why choose us</h2>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">🗓</div>
+        <h3>Consistent schedule</h3>
+        <p>We show up on the same day, every week. No surprises, no skipped collections.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">📱</div>
+        <h3>Pay easily via MoMo</h3>
+        <p>MTN Mobile Money and Vodafone Cash accepted. No cash handling, no stress.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🌿</div>
+        <h3>Responsible disposal</h3>
+        <p>All waste is transported to licensed disposal facilities. We do it properly.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">💬</div>
+        <h3>Local &amp; responsive</h3>
+        <p>We're based in Adenta. Reach us on WhatsApp and get a real reply, fast.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <div class="section-label">Community</div>
+    <h2>What residents say</h2>
+    <div class="t-grid">
+      <div class="t-card">
+        <p>"Finally a service that actually shows up. Our street used to overflow with rubbish by Friday. Not anymore."</p>
+        <div class="t-author">Abena M.</div>
+        <div class="t-loc">Adenta Estate</div>
+      </div>
+      <div class="t-card">
+        <p>"Paying via MoMo every month is so easy. I barely think about it. The truck just comes."</p>
+        <div class="t-author">Kofi A.</div>
+        <div class="t-loc">Adenta Barrier</div>
+      </div>
+      <div class="t-card">
+        <p>"We signed up our shop on the business plan. Worth every pesewa. No more piling waste at the front."</p>
+        <div class="t-author">Maame D.</div>
+        <div class="t-loc">Adenta Market area</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIGNUP -->
+  <section class="signup-section" id="signup">
+    <h2>Start your subscription today</h2>
+    <p>Join households and businesses across Adenta who've made waste collection simple and stress-free.</p>
+    <form class="signup-form" onsubmit="return false;">
+      <input type="text" placeholder="Your full name" />
+      <input type="text" placeholder="Your area / street" />
+      <button type="submit">Choose my plan</button>
+    </form>
+    <p class="momo-note">Payment accepted via MTN MoMo &amp; Vodafone Cash &nbsp;·&nbsp; Call or WhatsApp: <a href="tel:0240299171" style="color: rgba(255,255,255,0.7);">024 029 9171</a> &nbsp;·&nbsp; Cancel anytime</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>
+      <div class="footer-logo">Birim Waste Management</div>
+      <div class="footer-copy">Serving Adenta, Accra &nbsp;·&nbsp; © 2025</div>
+    </div>
+    <ul class="footer-links">
+      <li><a href="https://wa.me/233240299171">WhatsApp us</a></li>
+      <li><a href="tel:0240299171">024 029 9171</a></li>
+      <li><a href="#">Privacy</a></li>
+      <li><a href="#">Terms</a></li>
+    </ul>
+  </footer>
+
+</body>
+</html>
